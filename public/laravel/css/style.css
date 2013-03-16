@@ -360,6 +360,10 @@ code
 	color:#ccc;
 }
 
+footer {
+    border-top: 1px solid #eeeeee;
+    margin-top: 20px;
+}
 /* end ------------------------ */
 
 @media print {

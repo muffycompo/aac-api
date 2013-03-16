@@ -32,10 +32,26 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('home.index');
-});
+Route::get('/', array('as' => 'home', 'uses' => 'home@index'));
+
+//    GET ROUTES
+Route::get('api/v1/user', array('as' => 'api.user', 'uses' => 'api.user@index'));
+Route::get('api/v1/user/(:num)', array('uses' => 'api.user@view'));
+Route::get('home/signup', array('as' => 'signup', 'uses' => 'home@signup'));
+Route::get('api/v1/specialist', array('uses' => 'api.specialist@index'));
+Route::get('api/v1/specialist/(:num)/(:num?)', array('uses' => 'api.specialist@view'));
+Route::get('api/v1/disease', array('uses' => 'api.disease@index'));
+Route::get('api/v1/disease/(:num)/(:num?)', array('uses' => 'api.disease@view'));
+Route::get('api/v1/tip', array('uses' => 'api.tip@index'));
+Route::get('api/v1/tip/(:num)/(:num)', array('uses' => 'api.tip@view'));
+
+//    POST ROUTES
+Route::post('api/v1/user', array('uses' => 'api.user@index'));
+Route::post('home/authenticate', array('uses' => 'home@authenticate'));
+Route::post('home/lga_list/(:num)', array('uses' => 'home@lga_list'));
+
+//    PUT ROUTES
+Route::put('api/v1/user', array('uses' => 'api.user@index'));
 
 /*
 |--------------------------------------------------------------------------
