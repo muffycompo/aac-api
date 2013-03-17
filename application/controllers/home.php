@@ -41,18 +41,6 @@ class Home_Controller extends Base_Controller {
         return View::make('web.signup');
     }
 
-    public function post_authenticate(){
-        $auth = Users::auth_user(Input::all());
-        if( $auth === false ) {
-            $data = array('status'=>'fail', 'message'=>'Authentication not successful!', 'data'=>null);
-            return Response::json($data, 404);
-        } else {
-            $data = array('status'=>'success','message'=>'Authentication successful!', 'data'=>$auth);
-            return Response::json($data, 200);
-        }
-
-    }
-
     // AJAX - LGA Dropdown List helper
     public function post_lga_list($id){
         $lga_data = Util::lga_dropdown('lga', $id, array('id'=>'lga'));

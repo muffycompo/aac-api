@@ -47,11 +47,12 @@ Route::get('api/v1/tip/(:num)/(:num)', array('uses' => 'api.tip@view'));
 
 //    POST ROUTES
 Route::post('api/v1/user', array('uses' => 'api.user@index'));
-Route::post('home/authenticate', array('uses' => 'home@authenticate'));
+Route::post('api/v1/user/update/(:num)', array('uses' => 'api.user@update'));
+Route::post('api/v1/authenticate', array('uses' => 'api.authenticate@index'));
 Route::post('home/lga_list/(:num)', array('uses' => 'home@lga_list'));
 
 //    PUT ROUTES
-Route::put('api/v1/user', array('uses' => 'api.user@index'));
+//Route::put('api/v1/user', array('uses' => 'api.user@index'));
 
 /*
 |--------------------------------------------------------------------------

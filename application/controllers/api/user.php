@@ -36,8 +36,8 @@ class Api_User_Controller extends Base_Controller {
             return Response::json($data, 200);
         }
     }
-    public function put_index(){
-        $user = Users::update_user_profile(Input::all());
+    public function post_update($user_id){
+        $user = Users::update_user_profile((int) $user_id, Input::all());
         if( $user === false ){
             $data = array('status'=>'fail', 'message'=>'Update not successful!', 'data'=>null);
             return Response::json($data, 404);

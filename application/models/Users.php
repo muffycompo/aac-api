@@ -34,9 +34,8 @@ class Users extends Basemodel {
     }
 
     //TODO: Find a way to make PUT work with REST clients
-    public static function update_user_profile($data){
-        $member_id = $data['member_id'];
-        if(empty($member_id)){ return false;}
+    public static function update_user_profile($user_id, $data){
+        if(empty($user_id)){ return false;}
 
         $profile_data = array(
             'surname' => $data['surname'],
@@ -46,7 +45,7 @@ class Users extends Basemodel {
             'states_id' => $data['state']
         );
 
-        $user = DB::table('profiles')->where('users_id','=',$member_id)->update($profile_data);
+        $user = DB::table('profiles')->where('users_id','=',$user_id)->update($profile_data);
         if( $user ){
             return $profile_data;
         } else {
@@ -61,7 +60,7 @@ class Users extends Basemodel {
             return false;
         }
         $user_profile = $user->profile()->first();
-        return (array) $user_profile;
+        return $user_profile->original;
     }
 
     public static function auth_user($data){
@@ -72,7 +71,7 @@ class Users extends Basemodel {
         if( Auth::attempt($auth_data) ){
             $user = Auth::user();
             $user_profile = Users::find($user->id)->profile()->first();
-            return $user_profile;
+            return $user_profile->original;
         } else {
             return false;
         }

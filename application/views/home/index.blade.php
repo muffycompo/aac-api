@@ -3,7 +3,7 @@
 @section('main-content')
     <div class="home">
         <h2>Login</h2>
-        {{ Form::open('home/authenticate','post') }}
+        {{ Form::open('api/v1/authenticate','post') }}
         <p>
             {{ Form::label('email','Email:') }}<br>
             {{ Form::input('text','email','',array('id'=>'email')) }}
