@@ -33,10 +33,14 @@ class Users extends Basemodel {
 
     }
 
-    //TODO: Find a way to make PUT work with REST clients
     public static function update_user_profile($user_id, $data){
         if(empty($user_id)){ return false;}
 
+        if( !empty($data['password']) ){
+            DB::table('users')->where('id','=',$user_id)->update(array('password'=>Hash::make($data['password'])));
+        }
+
+        // Profile Data Array
         $profile_data = array(
             'surname' => $data['surname'],
             'firstname' => $data['firstname'],
