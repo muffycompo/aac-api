@@ -16,15 +16,20 @@ class Api_Authenticate_Controller extends Base_Controller{
     }
 
     public function post_index(){
-        $auth = Users::auth_user(Input::all());
-        if( $auth === false ) {
-            $data = array('status'=>'fail', 'message'=>'Authentication not successful!', 'data'=>null);
-            return Response::json($data, 404);
+        $validate = Users::validate_user_auth(Input::all());
+        if( $validate === true ){
+            $auth = Users::auth_user(Input::all());
+            if( $auth === false ) {
+                $data = array('status'=>'fail', 'message'=>'Authentication not successful!', 'data'=>null);
+                return Response::json($data, 404);
+            } else {
+                $data = array('status'=>'success','message'=>'Authentication successful!', 'data'=>$auth);
+                return Response::json($data, 200);
+            }
         } else {
-            $data = array('status'=>'success','message'=>'Authentication successful!', 'data'=>$auth);
-            return Response::json($data, 200);
+            $data = array('status'=>'fail', 'message'=>'Validation failed!', 'data'=>$validate);
+            return Response::json($data, 404);
         }
-
     }
 
 }

@@ -7,6 +7,41 @@ class Users extends Basemodel {
         return $this->has_one('Profile');
     }
 
+    public static $new_user_rules = array(
+        'surname' => 'required|alpha',
+        'firstname' => 'required|alpha',
+        'password' => 'required',
+        'email' => 'required|email',
+        'gsm' => 'required|numeric',
+        'lga' => 'required|numeric',
+        'state' => 'required|numeric'
+    );
+
+    public static $update_user_rules = array(
+        'surname' => 'required|alpha',
+        'firstname' => 'required|alpha',
+        'gsm' => 'required|numeric',
+        'lga' => 'required|numeric',
+        'state' => 'required|numeric'
+    );
+
+    public static $auth_user_rules = array(
+        'email' => 'required',
+        'password' => 'required'
+    );
+
+    public static function validate_new_user($data){
+        return self::validation($data,self::$new_user_rules);
+    }
+
+    public static function validate_user_update($data){
+        return self::validation($data,self::$update_user_rules);
+    }
+
+    public static function validate_user_auth($data){
+        return self::validation($data,self::$auth_user_rules);
+    }
+
     public static function new_user($data){
 
         $member_data = array(
