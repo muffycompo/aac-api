@@ -27,8 +27,8 @@ class Api_Authenticate_Controller extends Base_Controller{
                 return Response::json($data, 200);
             }
         } else {
-            $data = array('status'=>'fail', 'message'=>'Validation failed!', 'data'=>$validate);
-            return Response::json($data, 404);
+            $data = array('status'=>'fail', 'message'=>'Validation failed!', 'data'=>$validate->errors);
+            return Response::json($data, 401);
         }
     }
 
