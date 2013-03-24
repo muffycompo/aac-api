@@ -46,4 +46,11 @@ class Home_Controller extends Base_Controller {
         $lga_data = Util::lga_dropdown('lga', $id, array('id'=>'lga'));
         return Response::json(array('html_select'=>$lga_data));
     }
+
+    public function post_json_demo(){
+        $data = file_get_contents('php://input');
+        $json = json_decode($data);
+        $service = $json->{'service'};
+        print $service;
+    }
 }

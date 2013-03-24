@@ -44,12 +44,17 @@ Route::get('api/v1/disease', array('uses' => 'api.disease@index'));
 Route::get('api/v1/disease/(:num)/(:num?)', array('uses' => 'api.disease@view'));
 Route::get('api/v1/tip', array('uses' => 'api.tip@index'));
 Route::get('api/v1/tip/(:num)/(:num)', array('uses' => 'api.tip@view'));
+Route::get('api/v1/tip/single/(:num)', array('uses' => 'api.tip@single_tip'));
+Route::get('api/v1/tip/category', array('uses' => 'api.tip@category'));
 
 //    POST ROUTES
 Route::post('api/v1/user', array('uses' => 'api.user@index'));
 Route::post('api/v1/user/update/(:num)', array('uses' => 'api.user@update'));
 Route::post('api/v1/authenticate', array('uses' => 'api.authenticate@index'));
 Route::post('home/lga_list/(:num)', array('uses' => 'home@lga_list'));
+
+Route::post('home/json_demo', array('uses' => 'home@json_demo'));
+
 
 //    PUT ROUTES
 //Route::put('api/v1/user', array('uses' => 'api.user@index'));

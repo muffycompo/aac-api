@@ -164,5 +164,32 @@ class Users extends Basemodel {
         }
     }
 
+    public static function health_tips_single($tip_id){
+        $tips = DB::table('health_tips')->where('id','=',$tip_id)->get();
+
+        if( $tips === null ){
+            return false;
+        } else {
+            return $tips;
+        }
+    }
+
+    public static function health_tips_category($limit){
+        if( $limit === 0 ){
+            $tips = DB::table('health_tip_categories')->order_by('id','asc')->get();
+        } else {
+            $tips = DB::table('health_tip_categories')->order_by('id','asc')->take($limit)->get();
+
+        }
+
+        if( $tips === null ){
+            return false;
+        } else {
+            return $tips;
+        }
+    }
+
+
+
 
 }
