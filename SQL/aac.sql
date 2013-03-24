@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 17, 2013 at 04:19 PM
+-- Generation Time: Mar 24, 2013 at 01:37 AM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `health_tips` (
   `categories_id` int(11) NOT NULL,
   PRIMARY KEY (`id`,`categories_id`),
   KEY `fk_health_tips_health_tip_categories_idx` (`categories_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `health_tips`
@@ -41,7 +41,8 @@ CREATE TABLE IF NOT EXISTS `health_tips` (
 
 INSERT INTO `health_tips` (`id`, `tips_title`, `tip_body`, `categories_id`) VALUES
 (1, 'Healthy Proteins Tips', 'Beans are now listed in the "meat group" because they are packed with protein.\r\nChoose lean meats such as chicken breast, lean ham or roast beef.\r\nGo lean with protein with a handful of nuts.\r\nSalmon has omega 3 heart healthy fat.\r\nChoose lean meats such as chicken breast, lean ham or roast beef, instead of salami or bacon.\r\nIf your 4 year old gets 4 tablespoons of protein, he has met his daily protein needs.\r\nLean cuts of beef have the words, “round” or “loin” in the name.\r\nChoose lean-meats and fat-free hot dogs on whole grain buns.\r\nTry hummus or bean spread as a dip for veggies.\r\nNuts are a great source of protein and healthy oils.\r\nGive your family oils from fish, nuts, and liquid oils such as corn, soybean, canola, and olive oil.', 1),
-(2, 'Lower your risk of falling', '	 Help keep your bones strong by taking \r\ncalcium and vitamin D every day. Most older \r\nadults absorb calcium citrate better than \r\ncalcium carbonate, so read the labels on the \r\ncalcium bottles carefully. Ask your healthcare \r\nprovider how much calcium and vitamin D \r\nyou should take. .	 If you don’t exercise regularly, start. Just be \r\nsure to talk with your healthcare provider \r\nfirst, so he or she can help you come up with \r\nan exercise plan that’s right for you. Walking \r\nis an ideal aerobic (“heart healthy”) exercise; \r\ngradually increase the amount of time you \r\nspend walking, aiming for at least 20–30 \r\nminutes a day. In addition to walking, or doing \r\nother aerobic exercises like cycling, lift weights \r\nto help strengthen your muscles—and help \r\nprotect your bones. Learn to do yoga or tai chi, \r\nwhich can improve your balance and make \r\nyou less likely to fall. Many local senior centers \r\nand Y’s offer exercise, yoga and tai chi classes.  .	 If you’ve already had a fall, be sure to ask your \r\nhealthcare provider about exercise programs \r\nin your community that include not only \r\nstrength training and balance exercises but \r\nalso flexibility, and stretching exercises. These \r\ncan also help lower your risk of falls. .	 Get an eye check-up. Make sure your vision \r\nis good and your eyeglasses are right for you. \r\nMany falls happen when you do not see well.', 2);
+(2, 'Lower your risk of falling', '	 Help keep your bones strong by taking \r\ncalcium and vitamin D every day. Most older \r\nadults absorb calcium citrate better than \r\ncalcium carbonate, so read the labels on the \r\ncalcium bottles carefully. Ask your healthcare \r\nprovider how much calcium and vitamin D \r\nyou should take. .	 If you don’t exercise regularly, start. Just be \r\nsure to talk with your healthcare provider \r\nfirst, so he or she can help you come up with \r\nan exercise plan that’s right for you. Walking \r\nis an ideal aerobic (“heart healthy”) exercise; \r\ngradually increase the amount of time you \r\nspend walking, aiming for at least 20–30 \r\nminutes a day. In addition to walking, or doing \r\nother aerobic exercises like cycling, lift weights \r\nto help strengthen your muscles—and help \r\nprotect your bones. Learn to do yoga or tai chi, \r\nwhich can improve your balance and make \r\nyou less likely to fall. Many local senior centers \r\nand Y’s offer exercise, yoga and tai chi classes.  .	 If you’ve already had a fall, be sure to ask your \r\nhealthcare provider about exercise programs \r\nin your community that include not only \r\nstrength training and balance exercises but \r\nalso flexibility, and stretching exercises. These \r\ncan also help lower your risk of falls. .	 Get an eye check-up. Make sure your vision \r\nis good and your eyeglasses are right for you. \r\nMany falls happen when you do not see well.', 2),
+(3, 'Another Health Tip', 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus', 1);
 
 -- --------------------------------------------------------
 
@@ -920,7 +921,7 @@ INSERT INTO `profiles` (`id`, `users_id`, `surname`, `firstname`, `gsm`, `lga_id
 (4, 3, 'Onen', 'Ikpi', '08044315489', 175, 9),
 (5, 4, 'Onen', 'The', '08044331162', 175, 9),
 (6, 5, 'Android', 'Barka', '08033221333', 175, 9),
-(7, 6, 'User', 'Demo', '08059443352', 175, 9);
+(7, 6, 'Onen', 'Mfawa', '08030796088', 175, 9);
 
 -- --------------------------------------------------------
 
@@ -936,14 +937,16 @@ CREATE TABLE IF NOT EXISTS `prominent_diseases` (
   `disease_cure` text,
   `disease_control` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `prominent_diseases`
 --
 
 INSERT INTO `prominent_diseases` (`id`, `disease_name`, `disease_causes`, `disease_prevention`, `disease_cure`, `disease_control`) VALUES
-(1, 'Malaria', 'It is spread by the female anopheles mosquito and this occurs when it bites and sucks blood.', 'Take malaria preventive drugs.', 'Not Applicable', 'sleep under mosquito nets and clear the breeding grounds for these mosquitoes.');
+(1, 'Malaria', 'It is spread by the female anopheles mosquito and this occurs when it bites and sucks blood.', 'Take malaria preventive drugs.', 'Not Applicable', 'sleep under mosquito nets and clear the breeding grounds for these mosquitoes.'),
+(2, 'Disease Two', 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.', ' Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.', ' Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. ', ' Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. '),
+(3, 'Disease Three', 'Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ', 'Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ', 'Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ', 'Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ');
 
 -- --------------------------------------------------------
 
@@ -1022,7 +1025,7 @@ INSERT INTO `users` (`id`, `email`, `password`) VALUES
 (3, 'ikpi03@gmail.com', '$2a$08$WmtZ4tgYNkUKO7iy13z5keGCRmuq.4lO0ulAX5PlwFVoRYhVX2.By'),
 (4, 'denguru@kiwix.ikpi', '$2a$08$sYi6lA6bzpxKlQemHU62au4ZVT5cakRtkuWeSJ4YyhsaciRupmel2'),
 (5, 'barka@login.com', '$2a$08$dTR/ZoF7fVhU0yTVLWtQRODW65CXlas3ICevEcjRHPktJjCR7PuXW'),
-(6, 'demo@maomuffy.com', '$2a$08$1K/j7ZimhxYZVqidjHjr8uVH9K4CX2VH46/bd2GfBeWMlP6TJ83R6');
+(6, 'demo@maomuffy.com', '$2a$08$708HCKusn3LJXmcr8GrQ7e8C8gOcoixOgSxjI/Cyl9hFBlNRgrzsW');
 
 --
 -- Constraints for dumped tables
