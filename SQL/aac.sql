@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 24, 2013 at 01:37 AM
+-- Generation Time: Mar 28, 2013 at 12:33 AM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
 
@@ -879,19 +879,22 @@ CREATE TABLE IF NOT EXISTS `medical_specialists` (
   `specialist_hostpital_address` text,
   `specialist_contact_gsm` varchar(13) DEFAULT NULL,
   `specialist_email_address` varchar(255) DEFAULT NULL,
-  `specialization` varchar(255) DEFAULT NULL,
+  `specializations` text,
+  `location_longitude` varchar(200) NOT NULL,
+  `location_latitude` varchar(200) NOT NULL,
   `lga_id` int(11) NOT NULL,
   `states_id` int(11) NOT NULL,
   PRIMARY KEY (`id`,`lga_id`,`states_id`),
   KEY `fk_medical_specialists_local_government1_idx` (`lga_id`,`states_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `medical_specialists`
 --
 
-INSERT INTO `medical_specialists` (`id`, `specialist_name`, `specialist_hospital_name`, `specialist_hostpital_address`, `specialist_contact_gsm`, `specialist_email_address`, `specialization`, `lga_id`, `states_id`) VALUES
-(2, 'Dr. Muffy Jones', 'The Main Hospital', 'Somewhere in the North.', '08059443154', 'muffycompoqm@gmail.com', 'Plastic Surgeon', 175, 9);
+INSERT INTO `medical_specialists` (`id`, `specialist_name`, `specialist_hospital_name`, `specialist_hostpital_address`, `specialist_contact_gsm`, `specialist_email_address`, `specializations`, `location_longitude`, `location_latitude`, `lga_id`, `states_id`) VALUES
+(2, 'Dr. Muffy Jones', 'BHU Medical Clinic', 'Somewhere in BHU', '08059443154', 'muffycompoqm@gmail.com', 'Malaria, Diabetes, Typhoid', '8.958995', '7.70126', 175, 9),
+(3, 'Dr. Eno Alfred', 'American Hospital', 'Some Hospital Address', '08030796088', 'eno@alfred.onen', 'Malaria', '9.024195', '7.597203', 179, 9);
 
 -- --------------------------------------------------------
 
@@ -910,18 +913,19 @@ CREATE TABLE IF NOT EXISTS `profiles` (
   PRIMARY KEY (`id`,`users_id`,`lga_id`,`states_id`),
   KEY `fk_members_local_government1_idx` (`lga_id`,`states_id`),
   KEY `fk_members_users1_idx` (`users_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `profiles`
 --
 
 INSERT INTO `profiles` (`id`, `users_id`, `surname`, `firstname`, `gsm`, `lga_id`, `states_id`) VALUES
-(3, 2, 'Johnson', 'Donahue', '08059443164', 175, 9),
 (4, 3, 'Onen', 'Ikpi', '08044315489', 175, 9),
 (5, 4, 'Onen', 'The', '08044331162', 175, 9),
 (6, 5, 'Android', 'Barka', '08033221333', 175, 9),
-(7, 6, 'Onen', 'Mfawa', '08030796088', 175, 9);
+(7, 6, 'Onen', 'Mfawa', '08059443154', 663, 31),
+(8, 7, 'Onen', 'Ikpi', '08059443154', 175, 9),
+(9, 8, 'Onen', 'Alfred', '08030796088', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -1014,18 +1018,19 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `email`, `password`) VALUES
-(2, 'muffycompoqm@hotmail.com', '$2a$08$FzfTyDk/la4/ogcsOkm3EuCiZeMQsNhq3MuiS35hrTTnKkVQd6sDi'),
 (3, 'ikpi03@gmail.com', '$2a$08$WmtZ4tgYNkUKO7iy13z5keGCRmuq.4lO0ulAX5PlwFVoRYhVX2.By'),
 (4, 'denguru@kiwix.ikpi', '$2a$08$sYi6lA6bzpxKlQemHU62au4ZVT5cakRtkuWeSJ4YyhsaciRupmel2'),
 (5, 'barka@login.com', '$2a$08$dTR/ZoF7fVhU0yTVLWtQRODW65CXlas3ICevEcjRHPktJjCR7PuXW'),
-(6, 'demo@maomuffy.com', '$2a$08$708HCKusn3LJXmcr8GrQ7e8C8gOcoixOgSxjI/Cyl9hFBlNRgrzsW');
+(6, 'demo@maomuffy.com', '$2a$08$Rsdf6GpLnQXvmIlpTtNzA.D1xiHynO1Y0eZK0awxiOlvcejimlvM6'),
+(7, 'muffycompoqm@gmail.com', '$2a$08$80i5k7Wb6NGTsukfhzdwqOygoLjbOy3gJrWnTwrV9yzIs0vRIotAy'),
+(8, 'demo2@maomuffy.com', '$2a$08$4WC5Ur3XUPyygcK0596W0.hUKwk53MsLjm6cUiOoAQndN04TI338.');
 
 --
 -- Constraints for dumped tables

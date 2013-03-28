@@ -30,4 +30,17 @@ class Api_Specialist_Controller extends Base_Controller{
 
     }
 
+    public function get_map($disease_name, $lga, $state = ''){
+        $state = (int) $state;
+        $lga = (int) $lga;
+        $disease_name = urldecode($disease_name);
+        $specialists = Users::map_specialist($disease_name, $lga, $state);
+        if( $specialists === false || empty($specialists) ){
+            $data = array('status'=>'fail', 'message'=>'No specialist in your area!', 'data'=>null);
+            return Response::json($data, 404);
+        } else {
+            $data = array('status'=>'success', 'message'=>'Specialist found in you area!', 'data'=>$specialists);
+            return Response::json($data, 200);
+        }
+    }
 }

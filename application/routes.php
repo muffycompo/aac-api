@@ -40,6 +40,7 @@ Route::get('api/v1/user/(:num)', array('uses' => 'api.user@view'));
 Route::get('home/signup', array('as' => 'signup', 'uses' => 'home@signup'));
 Route::get('api/v1/specialist', array('uses' => 'api.specialist@index'));
 Route::get('api/v1/specialist/(:num)/(:num?)', array('uses' => 'api.specialist@view'));
+Route::get('api/v1/specialist/map/(:any)/(:num)/(:num?)', array('uses' => 'api.specialist@map'));
 Route::get('api/v1/disease', array('uses' => 'api.disease@index'));
 Route::get('api/v1/disease/(:num)/(:num?)', array('uses' => 'api.disease@view'));
 Route::get('api/v1/tip', array('uses' => 'api.tip@index'));
