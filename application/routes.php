@@ -47,6 +47,7 @@ Route::get('api/v1/tip', array('uses' => 'api.tip@index'));
 Route::get('api/v1/tip/(:num)/(:num)', array('uses' => 'api.tip@view'));
 Route::get('api/v1/tip/single/(:num)', array('uses' => 'api.tip@single_tip'));
 Route::get('api/v1/tip/category', array('uses' => 'api.tip@category'));
+Route::get('api/v1/bp/(:num)/(:num)/(:num?)/', array('uses' => 'api.bp@index'));
 
 //    POST ROUTES
 Route::post('api/v1/user', array('uses' => 'api.user@index'));

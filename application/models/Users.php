@@ -192,8 +192,7 @@ class Users extends Basemodel {
     public static function map_specialist($disease, $lga_id, $state_id){
         $d = explode(' ',$disease);
         $disease_name = $d[0];
-        $specialists = DB::table('medical_specialists')->where('specializations','LIKE','%' . strtolower($disease_name) . '%')
-            ->where('lga_id','=',$lga_id)->or_where('states_id','=', $state_id)->get();
+        $specialists = DB::query("SELECT * FROM `medical_specialists` WHERE specializations LIKE '%$disease_name%' AND (lga_id = ? OR states_id = ?)",array($lga_id, $state_id));
         if( $specialists === null ){
             return false;
         } else {

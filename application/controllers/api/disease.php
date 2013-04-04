@@ -27,7 +27,6 @@ class Api_Disease_Controller extends Base_Controller{
             $data = array('status'=>'success', 'message'=>'Disease found!', 'data'=>$diseases);
             return Response::json($data, 200);
         }
-
     }
 
 }

@@ -42,5 +42,6 @@ class Api_Specialist_Controller extends Base_Controller{
             $data = array('status'=>'success', 'message'=>'Specialist found in you area!', 'data'=>$specialists);
             return Response::json($data, 200);
         }
+
     }
 }
