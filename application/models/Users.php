@@ -18,8 +18,8 @@ class Users extends Basemodel {
     );
 
     public static $update_user_rules = array(
-        'surname' => 'required|alpha',
-        'firstname' => 'required|alpha',
+        'surname' => 'required',
+        'firstname' => 'required',
         'gsm' => 'required|numeric',
         'lga' => 'required|numeric',
         'state' => 'required|numeric'
